@@ -1,9 +1,24 @@
 //Test commmand
 console.log("Testing the Console logging");
 
-//User is asked for choice: Rock, Paper or Scissors - DOES NOT WORK YET
-let userChoice = prompt("Rock, paper or scissors?");
-console.log(userChoice);
+//User is asked for choice: Rock, Paper or Scissors
+function getUserChoice(){
+    let userPrompt = prompt("Rock, paper or scissors?");
+    if (userPrompt.toLowerCase() == "rock") {
+        let userChoice = "Rock"
+        return userChoice
+    } else if (userPrompt.toLowerCase() == "paper"){
+        let userChoice = "Paper"
+        return userChoice
+    } else if (userPrompt.toLowerCase() == "scissors"){
+        let userChoice = "Scissors"
+        return userChoice
+    } else alert("Invalid choice")
+}
+
+let userChoice = getUserChoice()
+console.log(userChoice)
+
 
 //Computer generates either Rock, Paper or Scissors
 function getComputerChoice(){
@@ -23,14 +38,35 @@ function getComputerChoice(){
 let computerChoice = getComputerChoice()
 console.log(computerChoice)
 
-//Write game rules: three conditions if user wins, three conditions if tie and three conditions if computer wins - DOES NOT WORK YET
+//Write game rules: three conditions if user wins, three conditions if tie and three conditions if computer wins
 if (computerChoice == "Rock"){
     console.log("The computer selected Rock")
+    if (userChoice == "Rock"){
+        console.log("You also selected Rock, so it's a tie!")
+    } else if (userChoice == "Paper"){
+        console.log("You selected Paper. Paper wraps around rock, you won! Congrats!")
+    } else if (userChoice == "Scissors"){
+        console.log("You selected Scissors. Rock beats scissors, loser!")
+    }
 } else if (computerChoice == "Paper"){
     console.log("The computer selected Paper")
-} else if (computerChoice == "Scissors")
+    if (userChoice == "Rock"){
+        console.log("You selected Rock. Paper wraps around rock, loser!")
+    } else if (userChoice == "Paper"){
+        console.log("You also selected Paper, so it's a tie!")
+    } else if (userChoice == "Scissors"){
+        console.log("You selected Scissors. You can cut through paper, you won! Congrats!")
+    }
+} else if (computerChoice == "Scissors"){
     console.log("The computer selected Scissors")
-
+    if (userChoice == "Rock"){
+        console.log("You selected Rock. Rock beats scissors, you won! Congrats!")
+    } else if (userChoice == "Paper"){
+        console.log("You selected Paper. Scissors cut through your paper, loser!")
+    } else if (userChoice == "Scissors"){
+        console.log("You also selected Scissors, so it's a tie!")
+    }
+}
 //Store game outcomes in variable and print computer score and player score - DOES NOT WORK YET
 let userScore = 0;
 let computerScore = 0;
