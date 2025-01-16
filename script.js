@@ -1,5 +1,8 @@
-//Test commmand
-console.log("Testing the Console logging");
+//Declare user score and computer score
+let userScore = 0;
+let computerScore = 0;
+
+while (userScore < 3 && computerScore < 3){
 
 //User is asked for choice: Rock, Paper or Scissors
 function getUserChoice(){
@@ -17,8 +20,6 @@ function getUserChoice(){
 }
 
 let userChoice = getUserChoice()
-console.log(userChoice)
-
 
 //Computer generates either Rock, Paper or Scissors
 function getComputerChoice(){
@@ -36,7 +37,6 @@ function getComputerChoice(){
 }
 
 let computerChoice = getComputerChoice()
-console.log(computerChoice)
 
 //Write game rules: three conditions if user wins, three conditions if tie and three conditions if computer wins
 if (computerChoice == "Rock"){
@@ -45,33 +45,45 @@ if (computerChoice == "Rock"){
         console.log("You also selected Rock, so it's a tie!")
     } else if (userChoice == "Paper"){
         console.log("You selected Paper. Paper wraps around rock, you won! Congrats!")
+        userScore++
     } else if (userChoice == "Scissors"){
         console.log("You selected Scissors. Rock beats scissors, loser!")
+        computerScore++
     }
 } else if (computerChoice == "Paper"){
     console.log("The computer selected Paper")
     if (userChoice == "Rock"){
         console.log("You selected Rock. Paper wraps around rock, loser!")
+        computerScore++
     } else if (userChoice == "Paper"){
         console.log("You also selected Paper, so it's a tie!")
     } else if (userChoice == "Scissors"){
         console.log("You selected Scissors. You can cut through paper, you won! Congrats!")
+        userScore++
     }
 } else if (computerChoice == "Scissors"){
     console.log("The computer selected Scissors")
     if (userChoice == "Rock"){
         console.log("You selected Rock. Rock beats scissors, you won! Congrats!")
+        userScore++
     } else if (userChoice == "Paper"){
         console.log("You selected Paper. Scissors cut through your paper, loser!")
+        computerScore++
     } else if (userChoice == "Scissors"){
         console.log("You also selected Scissors, so it's a tie!")
     }
 }
-//Store game outcomes in variable and print computer score and player score - DOES NOT WORK YET
-let userScore = 0;
-let computerScore = 0;
 
-//Keep playing until either player reaches 3 points (best of 5) - DOES NOT WORK YET
+console.log(`Your score is: ${userScore}`)
+console.log(`The computer's score is: ${computerScore}`)
+}
+
+//Keep playing until either player reaches 3 points (best of 5) 
+if (userScore == 3){
+    alert("Congrats! You won best of 5! Refresh the page to play another time")
+} else if (computerScore == 3){
+    alert("Unfortunately you lost - the computer reached 3/5. Better luck next time, refresh the page.")
+    }
 
 
 //Create button to reset game - DOES NOT WORK YET
