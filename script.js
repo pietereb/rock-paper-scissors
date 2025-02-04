@@ -20,75 +20,45 @@ let getComputerChoice = function(){
 // User selects Rock
 let rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener("click", () =>{
-    let userChoice = "Rock";
-    console.log(`User selected ${userChoice}.`);
+    if (userScore < 3 && computerScore < 3){
+        let userChoice = "Rock";
+        console.log(`You selected ${userChoice}.`);
 
-    let computerChoice = getComputerChoice();
-    console.log(`Computer selected ${computerChoice}.`)
+        let computerChoice = getComputerChoice();
+        console.log(`The computer selected ${computerChoice}.`)
 
-    if (computerChoice == "Paper"){
-        console.log("You lost.");
-        computerScore++;
-    } else if (computerChoice == "Scissors"){
-        console.log("You won!");
-        userScore++;
-    } else {
-        console.log("It's a tie...")
-    }
-    console.log(`Your score is: ${userScore}`);
-    console.log(`The computer score is: ${computerScore}`);
+        if (computerChoice == "Paper"){
+            console.log("You lost.");
+            computerScore++;
+        } else if (computerChoice == "Scissors"){
+            console.log("You won!");
+            userScore++;
+        } else {
+            console.log("It's a tie...");
+        }
+
+        console.log(`Your score is: ${userScore}`);
+        console.log(`The computer score is: ${computerScore}`);
+
+        if (userScore >=3){
+            console.log("You won 3 out of 5, congrats! Click the reset button to play another time.");
+        };
+
+        if (computerScore >=3){
+            console.log("The computer beat you 3 out of 5, better luck next time! Click the reset button to play another time.");
+        };
+    };
 });
 
+let resetGame = function(){
+    userScore = 0;
+    computerScore = 0;
+};
 
-// while (userScore < 3 && computerScore < 3){
-
-
-// //Write game rules: three conditions if user wins, three conditions if tie and three conditions if computer wins
-// if (computerChoice == "Rock"){
-//     console.log("The computer selected Rock")
-//     if (userChoice == "Rock"){
-//         console.log("You also selected Rock, so it's a tie!")
-//     } else if (userChoice == "Paper"){
-//         console.log("You selected Paper. Paper wraps around rock, you won! Congrats!")
-//         userScore++
-//     } else if (userChoice == "Scissors"){
-//         console.log("You selected Scissors. Rock beats scissors, loser!")
-//         computerScore++
-//     }
-// } else if (computerChoice == "Paper"){
-//     console.log("The computer selected Paper")
-//     if (userChoice == "Rock"){
-//         console.log("You selected Rock. Paper wraps around rock, loser!")
-//         computerScore++
-//     } else if (userChoice == "Paper"){
-//         console.log("You also selected Paper, so it's a tie!")
-//     } else if (userChoice == "Scissors"){
-//         console.log("You selected Scissors. You can cut through paper, you won! Congrats!")
-//         userScore++
-//     }
-// } else if (computerChoice == "Scissors"){
-//     console.log("The computer selected Scissors")
-//     if (userChoice == "Rock"){
-//         console.log("You selected Rock. Rock beats scissors, you won! Congrats!")
-//         userScore++
-//     } else if (userChoice == "Paper"){
-//         console.log("You selected Paper. Scissors cut through your paper, loser!")
-//         computerScore++
-//     } else if (userChoice == "Scissors"){
-//         console.log("You also selected Scissors, so it's a tie!")
-//     }
-// }
-
-// console.log(`Your score is: ${userScore}`)
-// console.log(`The computer's score is: ${computerScore}`)
-// }
-
-//Keep playing until either player reaches 3 points (best of 5) 
-// if (userScore == 3){
-//     alert("Congrats! You won best of 5! Refresh the page to play another time")
-// } else if (computerScore == 3){
-//     alert("Unfortunately you lost - the computer reached 3/5. Better luck next time, refresh the page.")
-//     }
-
-
-//Create button to reset game - DOES NOT WORK YET
+let resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", () => {
+    if (userScore >= 3 || computerScore >= 3){
+    resetGame();
+    console.log("Game was reset to default.");
+    };
+});
