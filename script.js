@@ -2,6 +2,11 @@
 let userScore = 0;
 let computerScore = 0;
 
+// Store display div's in variables
+let userScoreDisplay = document.querySelector("#usrscore");
+let computerScoreDisplay = document.querySelector("#cmpscore");
+let finalScoreDisplay = document.querySelector("#finalscore");
+
 //Function to have computer generate Rock, Paper or Scissors
 let getComputerChoice = function(){
     let randomNumber = Math.random()*3
@@ -37,15 +42,18 @@ rockBtn.addEventListener("click", () =>{
             console.log("It's a tie...");
         }
 
-        console.log(`Your score is: ${userScore}`);
-        console.log(`The computer score is: ${computerScore}`);
+        userScoreDisplay.textContent = `Your score is: ${userScore}`;
+
+        computerScoreDisplay.textContent = `The computer score is: ${computerScore}`;
 
         if (userScore >=3){
             console.log("You won 3 out of 5, congrats! Click the reset button to play another time.");
+            finalScoreDisplay.textContent = "You won 3 out of 5, congrats! Click the reset button to play another time.";
         };
 
         if (computerScore >=3){
             console.log("The computer beat you 3 out of 5, better luck next time! Click the reset button to play another time.");
+            finalScoreDisplay.textContent = "The computer beat you 3 out of 5, better luck next time! Click the reset button to play another time.";
         };
     };
 });
@@ -59,6 +67,9 @@ let resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", () => {
     if (userScore >= 3 || computerScore >= 3){
     resetGame();
+    userScoreDisplay.textContent = "";
+    computerScoreDisplay.textContent = "";
+    finalScoreDisplay.textContent = "";
     console.log("Game was reset to default.");
     };
 });
