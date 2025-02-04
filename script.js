@@ -25,6 +25,18 @@ rockBtn.addEventListener("click", () =>{
 
     let computerChoice = getComputerChoice();
     console.log(`Computer selected ${computerChoice}.`)
+
+    if (computerChoice == "Paper"){
+        console.log("You lost.");
+        computerScore++;
+    } else if (computerChoice == "Scissors"){
+        console.log("You won!");
+        userScore++;
+    } else {
+        console.log("It's a tie...")
+    }
+    console.log(`Your score is: ${userScore}`);
+    console.log(`The computer score is: ${computerScore}`);
 });
 
 
