@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    font-family: Orbitron, sans-serif;
+    background-color: #F6E6D8;
+}
+
+body{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+.rules{
+    margin-bottom: 50px;
+}
+
+.buttons{
+    margin: 50px 0;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+button{
+    height: 75px;
+    width: 150px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 3px solid;
+}
+
+#rock{
+    border-color: #68C7C1;
+    background-color: #b4ddda;
+    color: #51c5bd;
+}
+
+#paper{
+    border-color: #FACA78;
+    background-color: #fee5ba;
+    color: #fcc565;
+}
+
+#scissors{
+    border-color: #DC5341;
+    background-color: #d78b81;
+    color: #e0442f;
+}
+
+.java{
+    min-height: 400px;
+}
+
+#current, #finalscore{
+    margin: 20px 0;
+}
+
+#usrscore, #cmpscore{
+    font-size: 150%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+#reset{
+    background-color: rgb(210, 208, 208);
+}
